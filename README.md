@@ -15,9 +15,8 @@ This repository contains the 3D computer-aided design (CAD) files for an articul
 ---
 
 ## 📁 Repository Structure
-* `/Assembly`: Contains the main SolidWorks Assembly file (`.SLDASM`).
-* `/Parts`: Contains all individual component part files (`.SLDPRT`) used in the assembly.
-
+* `Arm.SLDASM`: The main SolidWorks Assembly file.
+* `*.SLDPRT`: Individual component part files (Base, Links 1-4) used in the assembly.
 ---
 
 ## 🚀 How to View and Use
