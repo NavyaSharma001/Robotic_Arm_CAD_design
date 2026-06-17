@@ -8,7 +8,7 @@ This repository contains the 3D computer-aided design (CAD) files for an articul
 ---
 
 ## ⚙️ Design Features
-* **Degrees of Freedom (DOF):** 5 
+* **Degrees of Freedom (DOF):** 3 
 * **Joint Types:** Revolute joints for anthropomorphic movement.
 * **Application Focus:** Kinematic simulation, pick-and-place automation, and structural design.
 
