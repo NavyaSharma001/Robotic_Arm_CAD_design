@@ -54,13 +54,11 @@ $$z = d_1 + a_2\sin\theta_2 + a_3\sin(\theta_2+\theta_3)$$
 ## 📁 Repository Structure
 
 
-├── /Assembly/
-│   └── Arm.SLDASM          # Main SolidWorks assembly defining mechanical joints
-├── /Parts/
-│   └── *.SLDPRT            # Component part geometries (Base, Links 1-3)
-├── forward_kinematics_3dof.m # Mathematical frame-chain matrix validation engine
-├── inverse_kinematics_3dof.m # Analytical closed-loop joint space angle solver
-└── workspace_visualization_3dof.m # Vectorized Monte Carlo spatial sampling script
+ 1. Assembly - Arm.SLDASM          # Main SolidWorks assembly defining mechanical joints
+2. Parts- *.SLDPRT            # Component part geometries (Base, Links 1-3)
+3. Codes- (a) forward_kinematics_3dof.m # Mathematical frame-chain matrix validation engine
+          (b)inverse_kinematics_3dof.m # Analytical closed-loop joint space angle solver
+          (c)workspace_visualization_3dof.m # Vectorized Monte Carlo spatial sampling script
 
 
 ## 📊 Workspace Specifications
