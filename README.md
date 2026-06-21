@@ -51,13 +51,21 @@ $$y = \sin\theta_1 \left( a_2\cos\theta_2 + a_3\cos(\theta_2+\theta_3) \right)$$
 
 $$z = d_1 + a_2\sin\theta_2 + a_3\sin(\theta_2+\theta_3)$$
 
-##  Repository Structure
-* `/Assembly/Arm.SLDASM`: Main assembly file defining joint axes and spatial configurations.
-* `/Parts/*.SLDPRT`: Individual component geometries (Base, Link 1, Link 2, Link 3) detailing strict mechanical dimensions.
+## 📁 Repository Structure
+
+```directory
+├── /Assembly/
+│   └── Arm.SLDASM          # Main SolidWorks assembly defining mechanical joints
+├── /Parts/
+│   └── *.SLDPRT            # Component part geometries (Base, Links 1-3)
+├── forward_kinematics_3dof.m # Mathematical frame-chain matrix validation engine
+├── inverse_kinematics_3dof.m # Analytical closed-loop joint space angle solver
+└── workspace_visualization_3dof.m # Vectorized Monte Carlo spatial sampling script
 
 
 ## 📊 Workspace Specifications
 The workspace was mapped using a vectorized Monte Carlo sampling simulation ($N = 30,000$ joint configurations) bounded by physical joint constraints. 
+<img width="1720" height="1132" alt="image" src="https://github.com/user-attachments/assets/72a2b1d7-31c8-4051-9425-a978c6a35f17" />
 
 ### Geometric Workspace Boundaries:
 * **Maximum Horizontal Envelope Radius:** $0.7000\text{ m}$ ($a_2 + a_3$ verification)
