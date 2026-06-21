@@ -1,21 +1,21 @@
 # Multi-DOF Robotic Arm: Geometric Modeling & Kinematic Framework
 
-A 3-Degree-of-Freedom (3-DOF) anthropomorphic articulated robotic arm modeled using first-principles geometric design in SolidWorks[cite: 5]. This repository serves as the structural foundation for link coordinate tracking, forward kinematics modeling, and mass-properties extraction necessary for high-level dynamic simulations.
+A 3-Degree-of-Freedom (3-DOF) anthropomorphic articulated robotic arm modeled using first-principles geometric design in SolidWorks. This repository serves as the structural foundation for link coordinate tracking, forward kinematics modeling, and mass-properties extraction necessary for high-level dynamic simulations.
 
+---
 
 ## ⚙️ Engineering & Design Features
-* **Kinematic Configuration:** 3-DOF Anthropomorphic (Revolute-Revolute-Revolute) configuration optimizing a spherical workspace profile.
+* **Kinematic Configuration:** 3-DOF Anthropomorphic (Revolute-Revolute-Revolute) design producing an approximately spherical reachable workspace.
 * **Mechanical Constraints:** Fully constrained mates establishing operational limits for physical joint rotation without inter-link interference.
-* **Dynamic Simulation Readiness:** Designed with uniform material density properties to enable accurate center of mass (CoM) and inertia tensor extraction.
+* **Dynamic Simulation Readiness:** Links are modeled with consistent density assumptions to facilitate preliminary center of mass (CoM) and inertia matrix estimation.
 
+---
 
 ## 📐 Kinematic Architecture & DH Convention
 
 To systematically track the position and orientation of each link relative to the base frame, the structural assembly is mapped using the standard **Denavit-Hartenberg (DH) convention**. 
 
-Each joint is assigned a local coordinate frame according to strict rules:
-1. The $z_i$-axis is aligned along the axis of rotation for joint $i+1$.
-2. The $x_i$-axis is directed along the common normal from $z_{i-1}$ to $z_i$.
+Each DH frame is assigned such that the z-axis coincides with the corresponding joint axis of rotation.
 
 ### The Denavit-Hartenberg Parameter Table
 
@@ -45,21 +45,28 @@ To find the absolute position and orientation of the end-effector (hand) relativ
 
 $$T_0^3 = A_1(\theta_1) \cdot A_2(\theta_2) \cdot A_3(\theta_3)$$
 
-The resulting matrix $T_0^3$ outputs the exact 3D coordinates $(x, y, z)$ of the tool tip within the workspace as a function of the joint angles:
+By expanding the translation column of the final composite transformation matrix $T_0^3$, the closed-form solutions for the end-effector coordinate position $(x, y, z)$ within the workspace are explicitly derived as:
 
-$$\begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} T_0^3(1,4) \\ T_0^3(2,4) \\ T_0^3(3,4) \end{bmatrix}$$
+$$x = \cos\theta_1 \left( a_2\cos\theta_2 + a_3\cos(\theta_2+\theta_3) \right)$$
 
+$$y = \sin\theta_1 \left( a_2\cos\theta_2 + a_3\cos(\theta_2+\theta_3) \right)$$
+
+$$z = d_1 + a_2\sin\theta_2 + a_3\sin(\theta_2+\theta_3)$$
+
+---
 
 ## 📁 Repository Structure
 * `/Assembly/Arm.SLDASM`: Main assembly file defining joint axes and spatial configurations.
-* `/Parts/*.SLDPRT`: Individual component geometries (Base, Link 1, Link 2, Link 3) detailing strict mechanical dimensions[cite: 5].
+* `/Parts/*.SLDPRT`: Individual component geometries (Base, Link 1, Link 2, Link 3) detailing strict mechanical dimensions.
 
+---
 
 ## 🚀 Future Roadmap & Control Pipeline
 1. **[Phase 1 - Geometric Design]:** Complete assembly modeling and clearance verification (Completed).
 2. **[Phase 2 - Mass Properties]:** Assign realistic physical material matrices (Aluminum 6061) to extract exact 3x3 inertia tensors.
 3. **[Phase 3 - Kinematics Engine]:** Deploy MATLAB scripts to solve analytical Inverse Kinematics for trajectory tracking.
 
+---
 
 ## 🛠️ How to View and Use
 1. Clone or download this repository to your local machine.
