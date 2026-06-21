@@ -53,7 +53,7 @@ $$z = d_1 + a_2\sin\theta_2 + a_3\sin(\theta_2+\theta_3)$$
 
 ## 📁 Repository Structure
 
-```directory
+
 ├── /Assembly/
 │   └── Arm.SLDASM          # Main SolidWorks assembly defining mechanical joints
 ├── /Parts/
